@@ -30,6 +30,18 @@ Work Suite HRMS is a unified enterprise human resource platform developed for th
 ---
 
 ## 4. ⚙️ Technical Approach & System Architecture
+
+### 📐 High-Level Architectural Flowchart:
+```mermaid
+graph TD
+    Employee["Employee Self-Service (Attendance / Leaves)"] -->|Punch-In / Request| AppServer["WorkSuite Enterprise Core"]
+    HR["HR Admin & Compliance Desk"] -->|Payroll, Policies & Onboarding| AppServer
+    AppServer --> AttendanceEngine["Geofenced Attendance & Time Tracker"]
+    AppServer --> PayrollEngine["Statutory Compliance & Automated Payroll"]
+    AppServer --> DB[("PostgreSQL / Relational Data Store")]
+    AppServer --> AuditLogger["Immutable Regulatory Audit Trail"]
+```
+
 | HRMS Module | Technologies | Functional Capability |
 | :--- | :--- | :--- |
 | **Employee Hub** | React 19, TypeScript, Tailwind | Employee onboarding, document verification, organizational tree view |
